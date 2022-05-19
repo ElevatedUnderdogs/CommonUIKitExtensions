@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
 
     /// Sets the whole color. 
     func set(color: UIColor) {

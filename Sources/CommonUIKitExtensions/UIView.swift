@@ -78,10 +78,14 @@ public extension UIView {
     }
 
     func roundCorners(constant: CGFloat = 5) {
+        roundOrSharpenCorners(constant: constant)
+        assert(layer.cornerRadius > 0)
+    }
+
+    func roundOrSharpenCorners(constant: CGFloat = 5) {
         layer.cornerRadius = constant
         layer.masksToBounds = true
         clipsToBounds = true
-        assert(layer.cornerRadius > 0)
     }
 
     func setUpCircleView(_ img: UIImage, inset: CGFloat) {

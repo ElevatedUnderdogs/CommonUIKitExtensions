@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
 
     /// Provides a dynamic version of the current font.
     @available(iOS 11.0, *)
@@ -16,7 +16,7 @@ extension UIFont {
     }
 }
 
-extension UIFont.TextStyle {
+public extension UIFont.TextStyle {
 
     /// Initializes the closes size.
     @available(iOS 11.0, *)

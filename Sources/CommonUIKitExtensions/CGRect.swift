@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension CGRect {
+public extension CGRect {
     func increasedWidth(by amount: CGFloat) -> CGRect {
         .init(
             x: self.minX,

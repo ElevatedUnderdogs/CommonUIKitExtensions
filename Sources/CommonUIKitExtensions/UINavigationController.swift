@@ -33,6 +33,17 @@ public extension UINavigationController {
         }
     }
 
+    /// Can't import CommonExtensions for some reason.
+//    func popToFirstOf<T: UIViewController>(type: T = .init()) {
+//        guard let t: T = viewControllers.firstOfType() else { return }
+//        print(String(describing: t))
+//        var last: UIViewController? = viewControllers.last
+//        while last as? T == nil {
+//            popViewController(animated: true)
+//            last = viewControllers.last
+//        }
+//    }
+
 
     /// Must be used on the main thread because viewControllers is read.
     /// - Returns: The view controller you would like to pop to.

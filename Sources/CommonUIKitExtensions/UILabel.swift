@@ -76,4 +76,23 @@ public extension UILabel {
             self.text = text
         }
     }
+
+    func with(text: String) -> Self {
+        self.text = text
+        return self
+    }
+
+    func with(lineCount: Int) -> Self {
+        self.numberOfLines = lineCount
+        return self
+    }
+
+    /// Call this no more than once per UILabel instance.
+    @available(iOS 11.0, *)
+    func setDynamicText() {
+        font = font.dynamic
+        adjustsFontForContentSizeCategory = true
+        setContentCompressionResistancePriority(.required, for: .horizontal)
+        setContentCompressionResistancePriority(.required, for: .vertical)
+    }
 }

@@ -59,6 +59,14 @@ public extension UIView {
         Self(frame: .zero)
     }
 
+    static func with(width: Double) -> Self {
+        Self(frame: .init(x: 0, y: 0, width: width, height: 0))
+    }
+
+    var flattenedSubViews: [UIView] {
+        subviews + subviews.flatMap(\.flattenedSubViews)
+    }
+
     // MARK - round view
 
     func makeCircularClipsMask() {
@@ -117,6 +125,17 @@ public extension UIView {
         layer.shadowRadius = 5
         layer.shadowOpacity = 1
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+    }
+
+    func addGradient(toTop: NSNumber = 0.05) {
+        let gradient = CAGradientLayer()
+        assert(superview != nil, "make sure you add the view to the superview before adding the gradient.")
+        gradient.frame = superview?.bounds
+            .increasedWidth(by: 50) // idk why, but this prevents the chop off on the right side issue.
+        ?? CGRect.null
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0.0, toTop]
+        superview?.layer.mask = gradient
     }
 
     // MARK - create borders
